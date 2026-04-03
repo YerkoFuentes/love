@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para mi amor</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- IMÁGENES -->
+    <div class="images">
+      <img class="img" src="assets/imagen1.jpeg" />
+      <img class="img" src="assets/imagen2.jpeg" />
+      <img class="img" src="assets/imagen3.jpeg" />
+      <img class="img" src="assets/imagen4.jpeg" />
+    </div>
+
+    <!-- TEXTO -->
+    <section class="message">
+      <h1>Para mi amorcito 💘</h1>
+      <p>
+        Cada día a tu lado es un regalo. Gracias por tu sonrisa, tu paciencia y por ser mi compañera en todo.
+        Te amo hoy, mañana y siempre Javiera Espinoza.
+      </p>
+        <div class="controls">
+            <div class="controls-row">
+                <button id="playBtn">▶️ Play</button>
+                <button id="pauseBtn">⏸️ Pause</button>
+            </div>
+        <label>
+            <input id="loop" type="checkbox" checked /> Repetir
+        </label>
+        <button id="secretBtn">💌 Tengo algo para ti</button>
+        </div>
+
+      <!-- AUDIO (oculto pero funcional) -->
+      <audio id="bgAudio"></audio>
+
+      <p id="secretMsg" class="secret">
+        Eres lo mejor que me ha pasado. Gracias por existir y compartir tu vida conmigo 💖
+      </p>
+
+    </section>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

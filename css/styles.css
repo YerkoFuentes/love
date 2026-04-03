@@ -1,0 +1,294 @@
+:root{
+  --bg:#fdf6f0;
+  --card:#ffffff;
+  --accent:#ff6b81;
+  --text:#333;
+}
+
+/* RESET */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+/* BODY */
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+
+  background: linear-gradient(135deg, #ffe0e9, #fff5f7, #ffe0e9);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text);
+  padding:40px;
+  overflow-x:hidden;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(10,10,10,0.08);
+  max-width:1200px;
+  width:100%;
+  min-height:500px;
+  overflow:hidden;
+  display:flex;
+  gap:20px;
+  padding:28px;
+  align-items:center;
+  animation:fadeIn 1s ease;
+}
+
+/* ANIMACIÓN ENTRADA */
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* IMÁGENES */
+.images{
+  display:flex;
+  gap:12px;
+  flex:1;
+  justify-content:center;
+  position:relative;
+}
+
+.img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+  position:absolute;
+  top:0;
+  left:0;
+
+  opacity:0;
+  transition:opacity 1s ease;
+}
+
+.img.active{
+  opacity:1;
+}
+
+.img:first-child{
+  opacity:1;
+  position:relative;
+}
+
+/* TEXTO */
+.message{
+  flex:1;
+  padding:6px 12px;
+}
+
+.message h1{
+  color:var(--accent);
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.message p{
+  line-height:1.6;
+  margin-bottom:18px;
+  font-size:18px;
+}
+
+/* CONTROLES */
+.controls{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+  width:100%;
+}
+
+/* fila de botones */
+.controls-row{
+  display:flex;
+  gap:10px;
+  width:100%;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* botones principales */
+.controls-row button{
+  flex:1;
+  min-width:120px;
+}
+
+/* loop centrado */
+.controls label{
+  font-size:14px;
+  color:#666;
+}
+
+button{
+  background:linear-gradient(135deg,#ff6b81,#ff8fa3);
+  color:white;
+  border:0;
+  padding:10px 16px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+  transition:all 0.25s ease;
+  box-shadow:0 4px 12px rgba(255,107,129,0.3);
+}
+
+button:hover{
+  transform:translateY(-2px) scale(1.05);
+}
+
+button:active{
+  transform:scale(0.95);
+}
+
+label{
+  font-size:14px;
+  color:#666;
+}
+
+/* 💌 MENSAJE OCULTO */
+.secret{
+  width:100%;
+  margin-top:8px;
+  opacity:0;
+  transform:translateY(10px);
+  transition:all 0.5s ease;
+  color:var(--accent);
+  font-weight:500;
+}
+
+.secret.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* 💓 CORAZONES */
+.heart{
+  position: fixed;       /* 👈 esto los pega a la pantalla */
+  bottom: -30px;         /* 👈 empiezan DESDE abajo */
+  font-size: 20px;
+  animation: floatUp 6s linear forwards;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+@keyframes floatUp{
+  0%{
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10%{
+    opacity: 0.8;
+  }
+  100%{
+    transform: translateY(-110vh) scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* 🌙 MODO OSCURO */
+@media (prefers-color-scheme: dark){
+  body{
+    background:#1a1a1a;
+    color:#eee;
+  }
+
+  .card{
+    background:#2a2a2a;
+    box-shadow:0 12px 30px rgba(0,0,0,0.5);
+  }
+
+  label{
+    color:#bbb;
+  }
+}
+
+/* ✨ ANIMACIÓN DEL FONDO */
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px){
+
+    body{
+        padding:20px;
+    }
+
+    .card{
+        flex-direction: column; /* 👈 pasa de horizontal a vertical */
+        padding:20px;
+        gap:16px;
+        text-align:center;
+        overflow:visible;
+    }
+
+    .images{
+    width:100%;
+    aspect-ratio: 1 / 1; /* 👈 cuadrado perfecto */
+    max-height: 320px;
+    position:relative;
+    overflow:hidden;
+    }
+
+    .img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:14px;
+    position:absolute;
+    top:0;
+    left:0;
+    }
+
+    .message{
+        padding:0;
+    }
+
+    .message h1{
+        font-size:28px;
+    }
+
+    .message p{
+        font-size:16px;
+    }
+
+    .controls{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    button{
+        width:100%;
+        max-width:200px;
+    }
+
+    #secretBtn{
+        width:100%;
+        margin-top:10px;
+    }
+
+    .secret{
+        font-size:15px;
+    }
+    }
